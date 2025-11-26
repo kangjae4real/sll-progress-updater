@@ -1,7 +1,7 @@
 import instance from './axios';
 import { UPDATE_PROGRESS_URL } from './url';
 import { isAxiosError } from './error';
-import type { UpdateProgressParams } from './type';
+import type { Lecture } from './type';
 
 const defaultFormPayload = {
   course_attend_log_no: '1',
@@ -13,7 +13,7 @@ const defaultFormPayload = {
   attend_ratio: '100',
 };
 
-export const updateProgress = async ({ weekSeqNo, duration }: UpdateProgressParams) => {
+export const updateProgress = async ({ weekSeqNo, duration }: Lecture) => {
   try {
     const response = await instance.postForm(UPDATE_PROGRESS_URL, {
       ...defaultFormPayload,
