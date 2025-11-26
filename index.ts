@@ -1,5 +1,5 @@
 import { updateProgress } from './request';
-import type { Lecture } from './type';
+import type { Lecture, UpdateProgressParams } from './type';
 import { delay } from './utils';
 
 // NOTE: 모두 완료되었는지 서버에서 응답을 안줌. 바보같이 주석처리 해야 함.
@@ -37,6 +37,7 @@ const lectures: Lecture[] = [
     duration: '28',
   },
 ];
+const COURSE_NAME: UpdateProgressParams['courseNm'] = '과일상회 Toon 직장 내 4대 폭력 예방교육';
 
 async function main() {
   while (true) {
@@ -44,6 +45,7 @@ async function main() {
       const msg = await updateProgress({
         weekSeqNo,
         duration,
+        courseNm: COURSE_NAME,
       });
 
       console.log(`Index: ${index}, Lecture: ${weekSeqNo}, Msg: ${msg}`);
